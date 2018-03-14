@@ -16,15 +16,15 @@ const productReducer = (state = initialState, action) => {
         case FETCH_MORE_PRODUCT:
             return { ...state}
         case FETCH_PRODUCT_SUCCEEDED:
+            console.log('load componentWillMount ---action', action);    
             return { ...state, currentlySending: false, product: action.product}
+            
         case FETCH_MORE_PRODUCT_SUCCEEDED:
             more_product = action.more_product;
-            console.log('productReducer---state', state.product);
-            console.log('productReducer---action', action);
+            console.log('_onLoadMore---state', state.product);
+            console.log('_onLoadMore---action', action);
             
             return { ...state }
-
-            // return { ...state, toast: 2, product: concat(state.product, action.product.data) 
         case FETCH_PRODUCT_FAILED:
             return { ...state, currentlySending: false, error: error}
         default:
